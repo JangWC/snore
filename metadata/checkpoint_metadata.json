@@ -1,0 +1,76 @@
+{
+  "checkpoint_file": "best.pt",
+  "checkpoint_keys": [
+    "epoch",
+    "model_state",
+    "optimizer_state",
+    "thresholds",
+    "args",
+    "metadata",
+    "parameter_count",
+    "monitor",
+    "monitor_score",
+    "val_loss",
+    "val_metrics"
+  ],
+  "args": {
+    "train_h5": "/home/tta/Woo_code/data/HF_Lung_V1_pre_joint15_mel129/HF_Lung_V1_train_15s_mel129_logstd.h5",
+    "test_h5": "/home/tta/Woo_code/data/HF_Lung_V1_pre_joint15_mel129/HF_Lung_V1_test_15s_mel129_logstd.h5",
+    "output_dir": "/home/tta/Woo_code/ie_joint_spectral_transformer/run/spectral_transformer_mel129_seed42",
+    "split_file": "/home/tta/Woo_code/ie_joint_spectral_transformer/run/spectral_transformer_mel129_seed42/split_indices.npz",
+    "rebuild_split": false,
+    "input_key": "features",
+    "label_key": "frame_target",
+    "group_key": "subject_id",
+    "val_ratio": 0.15,
+    "model": "spectral_transformer",
+    "spectrogram_bins": 129,
+    "spectral_time_kernels": "1,3,5",
+    "spectral_frequency_kernel": 129,
+    "spectral_branch_channels": 64,
+    "auxiliary_channels": 64,
+    "d_model": 256,
+    "nhead": 8,
+    "transformer_layers": 3,
+    "ffn_dim": 1024,
+    "dropout": 0.2,
+    "max_length": 2048,
+    "batch_size": 2,
+    "grad_accum_steps": 32,
+    "num_workers": 4,
+    "max_epochs": 300,
+    "lr": 0.0001,
+    "weight_decay": 0.0001,
+    "lr_patience": 10,
+    "lr_factor": 0.2,
+    "early_stopping": 50,
+    "monitor": "mean_f1",
+    "threshold_metric": "f1",
+    "pos_weight": "none",
+    "seed": 42,
+    "device": "auto",
+    "amp": true
+  },
+  "metadata": {
+    "train_h5": "/home/tta/Woo_code/data/HF_Lung_V1_pre_joint15_mel129/HF_Lung_V1_train_15s_mel129_logstd.h5",
+    "test_h5": "/home/tta/Woo_code/data/HF_Lung_V1_pre_joint15_mel129/HF_Lung_V1_test_15s_mel129_logstd.h5",
+    "input_shape": [
+      938,
+      193
+    ],
+    "target_shape": [
+      938,
+      2
+    ],
+    "feature_dim": 193,
+    "input_frames": 938,
+    "output_frames": 938,
+    "train_samples": 4666,
+    "val_samples": 823,
+    "test_samples": 4276
+  },
+  "thresholds": [
+    0.4599999999999999,
+    0.4099999999999999
+  ]
+}
